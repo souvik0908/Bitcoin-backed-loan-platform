@@ -1,0 +1,5 @@
+[workspace]
+members = [
+    "src/btc-loan-platform-backend"
+]
+resolver = "2"

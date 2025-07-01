@@ -1,0 +1,45 @@
+{
+  "canisters": {
+    "btc-loan-platform-backend": {
+      "candid": "src/btc-loan-platform-backend/btc-loan-platform-backend.did",
+      "package": "btc-loan-platform-backend",
+      "type": "rust"
+    },
+    "btc-loan-platform-frontend": {
+      "dependencies": [
+        "btc-loan-platform-backend"
+      ],
+      "source": [
+        "src/btc-loan-platform-frontend/dist"
+      ],
+      "type": "assets",
+      "workspace": "btc-loan-platform-frontend"
+    },
+    "internet_identity": {
+      "candid": "https://github.com/dfinity/internet-identity/releases/latest/download/internet_identity.did",
+      "frontend": {},
+      "remote": {
+        "id": {
+          "ic": "rdmx6-jaaaa-aaaaa-aaadq-cai"
+        }
+      },
+      "type": "custom",
+      "wasm": "https://github.com/dfinity/internet-identity/releases/latest/download/internet_identity_dev.wasm.gz"
+    }
+  },
+  "defaults": {
+    "bitcoin": {
+      "enabled": true,
+      "log_level": "info",
+      "nodes": [
+        "127.0.0.1:18444"
+      ]
+    },
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
