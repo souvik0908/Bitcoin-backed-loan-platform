@@ -1,0 +1,55 @@
+.dashboard-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(90deg, #2e0249, #57059e);
+  padding: 1rem 2rem;
+  color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: 'Poppins', sans-serif;
+}
+
+.dashboard-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.dashboard-nav-links a {
+  margin: 0 1rem;
+  text-decoration: none;
+  color: #ffffffc9;
+  transition: color 0.3s;
+}
+
+.dashboard-nav-links a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.dashboard-user-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.principal-id {
+  background: #ffffff1a;
+  padding: 0.3rem 0.6rem;
+  border-radius: 5px;
+  font-size: 0.85rem;
+}
+
+.logout-btn {
+  padding: 0.4rem 0.8rem;
+  background-color: #ff5252;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.logout-btn:hover {
+  background-color: #e53935;
+}

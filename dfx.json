@@ -1,45 +1,62 @@
 {
   "canisters": {
-    "btc-loan-platform-backend": {
-      "candid": "src/btc-loan-platform-backend/btc-loan-platform-backend.did",
-      "package": "btc-loan-platform-backend",
-      "type": "rust"
-    },
-    "btc-loan-platform-frontend": {
-      "dependencies": [
-        "btc-loan-platform-backend"
-      ],
-      "source": [
-        "src/btc-loan-platform-frontend/dist"
-      ],
-      "type": "assets",
-      "workspace": "btc-loan-platform-frontend"
-    },
-    "internet_identity": {
-      "candid": "https://github.com/dfinity/internet-identity/releases/latest/download/internet_identity.did",
-      "frontend": {},
-      "remote": {
-        "id": {
-          "ic": "rdmx6-jaaaa-aaaaa-aaadq-cai"
-        }
-      },
+    "loan_canister": {
       "type": "custom",
-      "wasm": "https://github.com/dfinity/internet-identity/releases/latest/download/internet_identity_dev.wasm.gz"
+      "candid": "src/loan_canister/loan_canister.did",
+      "wasm": "src/loan_canister/target/wasm32-unknown-unknown/release/loan_canister_opt.wasm",
+      "build": "cargo build --target wasm32-unknown-unknown --release --manifest-path src/loan_canister/Cargo.toml && ic-wasm src/loan_canister/target/wasm32-unknown-unknown/release/loan_canister.wasm -o src/loan_canister/target/wasm32-unknown-unknown/release/loan_canister_opt.wasm metadata candid:service -f src/loan_canister/loan_canister.did",
+      "metadata": [
+        {
+          "name": "candid:service",
+          "value": "src/loan_canister/loan_canister.did"
+        }
+      ]
+    },
+    "oracle_canister": {
+      "type": "custom",
+      "candid": "src/oracle_canister/oracle_canister.did",
+      "wasm": "src/oracle_canister/target/wasm32-unknown-unknown/release/oracle_canister_opt.wasm",
+      "build": "cargo build --target wasm32-unknown-unknown --release --manifest-path src/oracle_canister/Cargo.toml && ic-wasm src/oracle_canister/target/wasm32-unknown-unknown/release/oracle_canister.wasm -o src/oracle_canister/target/wasm32-unknown-unknown/release/oracle_canister_opt.wasm metadata candid:service -f src/oracle_canister/oracle_canister.did",
+      "metadata": [
+        {
+          "name": "candid:service",
+          "value": "src/oracle_canister/oracle_canister.did"
+        }
+      ]
+    },
+    "btc_token_canister": {
+      "type": "custom",
+      "candid": "src/btc_token_canister/btc_token_canister.did",
+      "wasm": "src/btc_token_canister/target/wasm32-unknown-unknown/release/btc_token_canister_opt.wasm",
+      "build": "cargo build --target wasm32-unknown-unknown --release --manifest-path src/btc_token_canister/Cargo.toml && ic-wasm src/btc_token_canister/target/wasm32-unknown-unknown/release/btc_token_canister.wasm -o src/btc_token_canister/target/wasm32-unknown-unknown/release/btc_token_canister_opt.wasm metadata candid:service -f src/btc_token_canister/btc_token_canister.did",
+      "metadata": [
+        {
+          "name": "candid:service",
+          "value": "src/btc_token_canister/btc_token_canister.did"
+        }
+      ]
+    },
+    "iusd_token_canister": {
+      "type": "custom",
+      "candid": "src/iusd_token_canister/iusd_token_canister.did",
+      "wasm": "src/iusd_token_canister/target/wasm32-unknown-unknown/release/iusd_token_canister_opt.wasm",
+      "build": "cargo build --target wasm32-unknown-unknown --release --manifest-path src/iusd_token_canister/Cargo.toml && ic-wasm src/iusd_token_canister/target/wasm32-unknown-unknown/release/iusd_token_canister.wasm -o src/iusd_token_canister/target/wasm32-unknown-unknown/release/iusd_token_canister_opt.wasm metadata candid:service -f src/iusd_token_canister/iusd_token_canister.did",
+      "metadata": [
+        {
+          "name": "candid:service",
+          "value": "src/iusd_token_canister/iusd_token_canister.did"
+        }
+      ]
+    },
+    "frontend": {
+      "type": "assets",
+      "source": ["src/btc-loan-platform-frontend/dist"]
     }
   },
   "defaults": {
-    "bitcoin": {
-      "enabled": true,
-      "log_level": "info",
-      "nodes": [
-        "127.0.0.1:18444"
-      ]
-    },
     "build": {
-      "args": "",
       "packtool": ""
     }
   },
-  "output_env_file": ".env",
   "version": 1
 }

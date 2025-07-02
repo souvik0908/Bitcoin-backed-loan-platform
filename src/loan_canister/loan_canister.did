@@ -1,0 +1,7 @@
+service : {
+  deposit_btc: (nat64) -> () ;
+  borrow_iusd: () -> (nat64) ;
+  repay_iusd: (nat64) -> () ;
+  get_loan: () -> (nat64, nat64) query ;
+  get_max_borrowable_auto: () -> (nat64) ;
+};

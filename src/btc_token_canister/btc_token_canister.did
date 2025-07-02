@@ -1,0 +1,6 @@
+service : {
+  "mint_to": (principal, nat64) -> (bool);
+  "burn_from": (principal, nat64) -> (bool);
+  "transfer_from": (principal, principal, nat64) -> (bool);
+  "balance_of": (principal) -> (nat64) query;
+}
