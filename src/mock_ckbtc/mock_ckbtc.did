@@ -1,0 +1,25 @@
+type Account = record {
+  owner: principal;
+  subaccount: opt vec nat8;
+};
+
+type TransferArg = record {
+  from_subaccount: opt vec nat8;
+  to: Account;
+  amount: nat;
+  fee: opt nat;
+  memo: opt vec nat8;
+  created_at_time: opt nat64;
+};
+
+type TransferResult = variant {
+  Ok: nat;
+  Err: text;
+};
+
+service : {
+  icrc1_transfer: (TransferArg) -> (TransferResult);
+  icrc1_transfer_from: (principal, TransferArg) -> (TransferResult);
+  icrc1_balance_of: (Account) -> (nat) query;
+  mint: (principal, nat) -> ();
+};

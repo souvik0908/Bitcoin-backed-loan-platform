@@ -1,0 +1,4 @@
+service : {
+  get_price: () -> (nat64) query;
+  set_price: (nat64) -> ();
+};

@@ -1,0 +1,24 @@
+type LoanEvent = record {
+  action: text;
+  amount: nat64;
+  timestamp: nat64;
+};
+
+type ProtocolStats = record {
+  total_btc_locked: nat64;
+  total_iusd_borrowed: nat64;
+};
+
+service : {
+  deposit_btc: (nat64) -> ();
+  borrow_iusd: () -> (nat64);
+  repay_iusd: (nat64) -> ();
+  get_loan: () -> (nat64, nat64) query;
+  get_max_borrowable_auto: () -> (nat64);
+  get_accrued_interest: () -> (nat64) query;
+  get_loan_history: () -> (vec LoanEvent) query;
+  get_protocol_stats: () -> (ProtocolStats) query;
+  get_btc_price_from_oracle: () -> (nat64);
+};
+
+

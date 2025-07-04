@@ -1,0 +1,1 @@
+/mnt/d/btc_loan_dapp/src/loan_canister/target/wasm32-unknown-unknown/release/loan_canister.wasm: /mnt/d/btc_loan_dapp/src/loan_canister/src/../../declarations/ckbtc/ckbtc.rs /mnt/d/btc_loan_dapp/src/loan_canister/src/../../declarations/iusd/iusd.rs /mnt/d/btc_loan_dapp/src/loan_canister/src/lib.rs
